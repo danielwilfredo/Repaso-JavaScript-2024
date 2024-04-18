@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de JS</title>
+</head>
+<body>
+    <h1>Fundamentos de JS</h1>
+
+
+    <div id="mostrarImagen">
+
+    </div>
+
+
+    <script>
+        let url="https://api.chucknorris.io/jokes/random";
+
+const consumirApi= async ()=>{
+    const respuesta= await fetch(url)
+    const resultado= await respuesta.json()
+    console.log(resultado)
+      // Obtener una referencia al div
+      var divMostrarImagen = document.getElementById("mostrarImagen");
+
+// Crear un elemento de imagen
+var texto = document.createElement("p");
+
+// Establecer la ruta de la imagen
+texto.innerText = resultado.value;
+
+// Agregar la imagen al div
+divMostrarImagen.appendChild(texto);
+}
+
+consumirApi();
+
+//unir 2 objetos
+
+const producto={
+    nombre:"Tablet",
+    precio:300,
+    disponible:true
+}
+
+const cliente ={
+    nombre:"wilfredo",
+    premium: true
+}
+
+//const nuevoObjeto=Object.assign(producto, cliente) no muy recomendado
+//console.log(nuevoObjeto)
+
+//spread operator
+const nuevoObjeto2={...producto, ...cliente} //esta forma reescribe tambien
+//pero se reescriben las propiedades que se llaman igual
+
+
+//const nuevoObjeto2={producto: {...producto}, cliente:{...cliente}}
+
+console.log(nuevoObjeto2)
+    </script>
+</body>
+</html>
